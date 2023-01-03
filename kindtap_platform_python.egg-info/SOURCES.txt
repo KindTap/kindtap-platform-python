@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+kindtap_platform_python/__init__.py
+kindtap_platform_python/signature_v1.py
+kindtap_platform_python.egg-info/PKG-INFO
+kindtap_platform_python.egg-info/SOURCES.txt
+kindtap_platform_python.egg-info/dependency_links.txt
+kindtap_platform_python.egg-info/top_level.txt
