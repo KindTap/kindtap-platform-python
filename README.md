@@ -4,7 +4,7 @@
 
 ### Installation
 
-`pip install https://github.com/KindTap/kindtap-platform-python@0.0.1`
+`pip install git+https://github.com/KindTap/kindtap-platform-python.git#0.0.1`
 
 ### Example using requests
 

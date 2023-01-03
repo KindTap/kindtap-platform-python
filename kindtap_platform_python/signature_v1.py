@@ -51,7 +51,7 @@ def _build_signed_headers(headers):
     return ';'.join(headers_sorted)
 
 
-def _generate_signature_v1(
+def generate_signature_v1(
     service,
     client_secret,
     req_method,
@@ -121,7 +121,7 @@ def generate_signed_auth_header(
 
     signed_headers = _build_signed_headers(req_headers)
 
-    signature = _generate_signature_v1(
+    signature = generate_signature_v1(
         service,
         client_secret,
         req_method,
