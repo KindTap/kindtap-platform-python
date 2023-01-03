@@ -83,12 +83,12 @@ def generate_signature_v1(
     canon_request_hash = hashlib.sha256(bytes(canon_request, 'utf-8')).hexdigest()
     logger.debug(f'Canonical Request Hash: {canon_request_hash}')
 
-    cred_date = stringify_date(req_date)
+    cred_date = stringify_date(req_date, False)
     cred_scope = f'{cred_date}/{REGION}/{service}/{AUTH_TYPE}'
 
     msg_to_sign = '\n'.join([
         ALGO,
-        stringify_date(req_date, True),
+        stringify_date(req_date),
         cred_scope,
         canon_request_hash,
     ])
@@ -116,7 +116,7 @@ def generate_signed_auth_header(
     req_body,
     req_params,
 ):
-    cred_date = stringify_date(req_date)
+    cred_date = stringify_date(req_date, False)
     cred_scope = f'{cred_date}/{REGION}/{service}/{AUTH_TYPE}'
 
     signed_headers = _build_signed_headers(req_headers)
@@ -138,7 +138,7 @@ def generate_signed_auth_header(
     return auth
 
 
-def stringify_date(d, t=False):
+def stringify_date(d, t=True):
     if t:
         return d.strftime('%Y%m%dT%H%M%SZ')
     return d.strftime('%Y%m%d')
