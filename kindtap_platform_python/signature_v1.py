@@ -33,7 +33,7 @@ def _build_canon_query(params):
     params_enc = []
     for k, v in params_sorted:
         k_enc = quote(k)
-        v_enc = quote(re.sub(EQUALS_EXPR, EQUALS_ENC, v or ''))
+        v_enc = quote(re.sub(EQUALS_EXPR, EQUALS_ENC, f'{v or ""}'))
         params_enc.append(f'{k_enc}={v_enc}')
     return '&'.join(params_enc)
 
